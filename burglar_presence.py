@@ -90,30 +90,3 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-
-
-# # ① Capture frames from video or camera feed
-# cap = cv2.VideoCapture(0)
-
-# # Read the first frame
-# ret, frame1 = cap.read()
-# prvs = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
-
-# # Set the threshold for motion detection
-# threshold = 10000
-
-# while True:
-#     # Read the next frame
-#     ret, frame2 = cap.read()
-#     next_frame = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
-
-#     # ② Find the difference b/w two adjacent frames
-#     flow = cv2.calcOpticalFlowFarneback(prvs, next_frame, None, 0.5, 3, 15, 3, 5, 1.2, 0)
-
-#     # Calculate the magnitude of the flow vectors
-#     magnitude = np.sqrt(flow[..., 0] ** 2 + flow[..., 1] ** 2)
-
-#     # ③ If the difference is big, flag the event and record the frame, else ignore
-#     if np.sum(magnitude) > threshold:
-#         print("Motion Detected!")
-#         cv2.imwrite("motion_detected.jpg", frame2)
