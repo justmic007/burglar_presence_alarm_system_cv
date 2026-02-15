@@ -66,7 +66,7 @@ while True:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
         motion = any(
-            cv2.contourArea(c) > 5000 for c in contours
+            cv2.contourArea(c) > 1000 for c in contours
         )  # Adjust threshold as needed. This is a simple heuristic to flag significant motion events. Tune the threshold based on your specific use case and environment. You may want to experiment with different values to find the optimal balance between sensitivity and false positives. The higher the threshold, the more sensitive the motion detection will be to larger movements.
 
         if motion:
